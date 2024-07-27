@@ -39,9 +39,28 @@ def get_tools_from_topic(all_intent_info):
         'description': intent_info['description']
       },
     })
-    print("Name:", intent_info["name"])
-    print("Description", intent_info["description"])
+    # print("Name:", intent_info["name"])
+    # print("Description", intent_info["description"])
   return topic_to_tools
+
+def get_intent_tools(topic_info, topic):
+  intent_to_tools = []
+
+  intents = []
+  for t in topic_info:
+    if t['name'] == topic:
+      intents = t['intents']
+
+  for intent in intents:
+    intent_to_tools.append({
+      'type': 'function',
+      'function': {
+        'name': intent['name'],
+        'description': intent['description']
+      },
+    })
+
+  return intent_to_tools
 
 # Example usage:
 directory = "example_yamls"
@@ -50,18 +69,34 @@ full_intent_info = read_yaml_files(directory)
 topic_tools = get_tools_from_topic(full_intent_info)
 
 
+user_message = 'I want to fly to Rome.'
+print("User query:", user_message)
 
 client = OpenAI(
-    base_url = 'http://localhost:11434/v1',
-    api_key='ollama', # required, but unused
+  base_url = 'http://localhost:11434/v1',
+  api_key='ollama', # required, but unused
 )
 
 completion = client.chat.completions.create(
-    model='llama3.1',
-    messages=[{'role': 'user', 'content': 'Is it going to be humid tomorrow?'}],
+  model='llama3.1',
+  messages=[{'role': 'user', 'content': user_message}],
 
-    # provide a weather checking tool to the model
-    tools=topic_tools
+  tools=topic_tools
 )
 
-print("predicted topic:", completion.choices[0].message.tool_calls[0].function.name)
+chosen_topic = completion.choices[0].message.tool_calls[0].function.name
+
+print("predicted topic:", chosen_topic)
+
+intent_tools = get_intent_tools(full_intent_info, chosen_topic)
+
+completion = client.chat.completions.create(
+  model='llama3.1',
+  messages=[{'role': 'user', 'content': user_message}],
+
+  tools=intent_tools
+)
+
+chosen_intent = completion.choices[0].message.tool_calls[0].function.name
+
+print("predicted intent:", chosen_intent)

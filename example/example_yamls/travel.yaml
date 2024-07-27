@@ -1,5 +1,5 @@
 name: "travel"
-description: "Plan and manage travel arrangements."
+description: "Plan and manage travel arrangements. Search for hotels, flights, and rental cars."
 
 intents:
   - name: "search_flights"

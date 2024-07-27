@@ -1,5 +1,5 @@
 name: "map"
-description: "Get directions, find places, and explore the world."
+description: "Get directions, find places such as restaurants shops etc."
 
 intents:
   - name: "get_directions"

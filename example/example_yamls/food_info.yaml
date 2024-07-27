@@ -1,5 +1,5 @@
-name: "food_recipes"
-description: "Find recipes, cooking instructions, and food information."
+name: "food_info"
+description: "Find recipes, and food nutrition information."
 
 intents:
   - name: "search_recipe"
