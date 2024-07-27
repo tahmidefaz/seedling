@@ -1,0 +1,12 @@
+name: "food_recipes"
+description: "Find recipes, cooking instructions, and food information."
+
+intents:
+  - name: "search_recipe"
+    description: "Searches for a recipe based on ingredients or dish name."
+  - name: "get_recipe_instructions"
+    description: "Gets step-by-step instructions for a recipe."
+  - name: "get_food_nutrition_info"
+    description: "Gets nutritional information for a food item."
+  - name: "create_shopping_list_from_recipe"
+    description: "Creates a shopping list based on a recipe."

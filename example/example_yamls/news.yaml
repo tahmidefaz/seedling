@@ -1,0 +1,14 @@
+name: "news"
+description: "Access and consume news content."
+
+intents:
+  - name: "get_top_stories"
+    description: "Gets the top news stories."
+  - name: "get_news_by_category"
+    description: "Gets news for a specific category (e.g., technology, sports, business)."
+  - name: "search_news"
+    description: "Searches for news based on a keyword."
+  - name: "read_article"
+    description: "Reads a news article."
+  - name: "save_article"
+    description: "Saves an article for later reading."

@@ -1,0 +1,18 @@
+name: "map"
+description: "Get directions, find places, and explore the world."
+
+intents:
+  - name: "get_directions"
+    description: "Gets directions between two locations."
+  - name: "find_place"
+    description: "Finds a specific place like a restaurant, gas station, or store."
+  - name: "search_nearby"
+    description: "Finds places of interest near a given location."
+  - name: "get_traffic_information"
+    description: "Gets real-time traffic information for a route."
+  - name: "explore_area"
+    description: "Gets suggestions for places to visit in a specific area."
+  - name: "get_distance"
+    description: "Calculates the distance between two locations."
+  - name: "get_estimated_travel_time"
+    description: "Gets the estimated travel time between two locations."

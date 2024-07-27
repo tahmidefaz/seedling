@@ -1,0 +1,16 @@
+name: "reminders"
+description: "Manage and access reminders."
+
+intents:
+  - name: "create_reminder"
+    description: "Creates a new reminder."
+  - name: "delete_reminder"
+    description: "Deletes an existing reminder."
+  - name: "update_reminder"
+    description: "Updates an existing reminder."
+  - name: "list_reminders"
+    description: "Lists all active reminders."
+  - name: "snooze_reminder"
+    description: "Snoozes an active reminder."
+  - name: "dismiss_reminder"
+    description: "Dismissed an active reminder."

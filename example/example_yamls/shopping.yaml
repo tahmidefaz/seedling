@@ -1,0 +1,16 @@
+name: "shopping"
+description: "Manage shopping lists and items."
+
+intents:
+  - name: "create_shopping_list"
+    description: "Creates a new shopping list."
+  - name: "add_item"
+    description: "Adds an item to a shopping list."
+  - name: "remove_item"
+    description: "Removes an item from a shopping list."
+  - name: "view_shopping_list"
+    description: "Views a specific shopping list."
+  - name: "clear_shopping_list"
+    description: "Clears all items from a shopping list."
+  - name: "find_item"
+    description: "Searches for a specific item in a shopping list."

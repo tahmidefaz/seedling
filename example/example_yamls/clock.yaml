@@ -1,0 +1,16 @@
+name: "clock"
+description: "Get time, set alarms, and timers."
+
+intents:
+  - name: "get_current_time"
+    description: "Gets the current time."
+  - name: "set_alarm"
+    description: "Sets an alarm for a specific time."
+  - name: "cancel_alarm"
+    description: "Cancels a previously set alarm."
+  - name: "set_timer"
+    description: "Sets a timer for a specific duration."
+  - name: "stop_timer"
+    description: "Stops an active timer."
+  - name: "check_timer"
+    description: "Checks the remaining time on an active timer."

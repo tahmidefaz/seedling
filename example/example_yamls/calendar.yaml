@@ -1,0 +1,18 @@
+name: "calendar"
+description: "Manage and access calendar events."
+
+intents:
+  - name: "create_event"
+    description: "Creates a new calendar event."
+  - name: "delete_event"
+    description: "Deletes an existing calendar event."
+  - name: "update_event"
+    description: "Updates an existing calendar event."
+  - name: "view_events"
+    description: "Lists upcoming or past calendar events."
+  - name: "find_available_time"
+    description: "Finds available time slots in the calendar."
+  - name: "set_reminder"
+    description: "Sets a reminder for a calendar event."
+  - name: "cancel_reminder"
+    description: "Cancels a reminder for a calendar event."

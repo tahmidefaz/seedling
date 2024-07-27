@@ -1,0 +1,14 @@
+name: "travel"
+description: "Plan and manage travel arrangements."
+
+intents:
+  - name: "search_flights"
+    description: "Searches for flights based on origin, destination, and dates."
+  - name: "search_hotels"
+    description: "Searches for hotels based on location, dates, and preferences."
+  - name: "search_rental_cars"
+    description: "Searches for rental cars based on location, dates, and car type."
+  - name: "get_directions"
+    description: "Gets directions to a specific location."
+  - name: "find_restaurants"
+    description: "Finds restaurants based on location and cuisine."
