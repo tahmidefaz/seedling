@@ -24,7 +24,7 @@ SCHEMA = {
     "additionalProperties": False,
 }
 
-def is_valid(filename, data):
+def is_valid(filename: str, data: dict) -> bool:
   try:
     jsonschema.validate(instance=data, schema=SCHEMA)
   except jsonschema.exceptions.ValidationError as e:
@@ -33,7 +33,7 @@ def is_valid(filename, data):
   return True
 
 
-def read(directory):
+def read(directory: str) -> dict:
   """Reads all YAML files in a directory and returns an array of dictionaries.
 
   Args:

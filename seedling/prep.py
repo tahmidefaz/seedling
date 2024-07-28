@@ -1,7 +1,4 @@
-import yaml
-import glob
-
-def get_tools_from_topics(all_topic_info):
+def get_tools_from_topics(all_topic_info: dict) -> list:
   """Prints the top-level "name" and "description" from each YAML dictionary.
 
   Args:
@@ -19,7 +16,7 @@ def get_tools_from_topics(all_topic_info):
 
   return topic_to_tools
 
-def get_tools_from_intents(all_topic_info, topic):
+def get_tools_from_intents(all_topic_info: dict, topic: str) -> list:
   intent_to_tools = []
 
   intents = []
