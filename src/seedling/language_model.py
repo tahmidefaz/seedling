@@ -1,5 +1,8 @@
 """Defines the LLM interface."""
+
 from openai import OpenAI
+
+from .prep import valid_extracted_tool_params
 
 
 class LanguageModel:
@@ -41,12 +44,11 @@ class LanguageModel:
 
         return completion
 
-    def extract_choice(self, completion: dict) -> str:
+    def extract_choice(self, completion: dict, tools: list | None) -> str:
         """Extracts the function name from the LLM call in the response.
 
         Args:
-            completion: A dictionary containing the generated
-                response and other details.
+            completion: A dictionary containing the generated response and other details.
 
         Returns:
             The extracted function name as a string,
@@ -54,7 +56,20 @@ class LanguageModel:
         """
         try:
             if completion.choices[0].message.tool_calls:
-                return completion.choices[0].message.tool_calls[0].function.name
+                extracted_tool = completion.choices[0].message.tool_calls[0].function
+
+                if not tools:
+                    return extracted_tool.name
+
+                params = {}
+                if extracted_tool.arguments:
+                    params = valid_extracted_tool_params(extracted_tool, tools)
+
+                intent_info = {
+                    'name': extracted_tool.name,
+                    'params': params,
+                }
+                return intent_info
         except Exception as e:    # pylint: disable=broad-exception-caught
             print(completion)
             print(e)

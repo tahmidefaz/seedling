@@ -1,2 +1,2 @@
 lint:
-	flake8 seedling && pylint seedling
+	flake8 src/seedling && pylint src/seedling

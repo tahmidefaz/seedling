@@ -23,16 +23,17 @@ def predict(
 
     topic_completion = llm.completion(user_message, topic_tools)
 
-    chosen_topic = llm.extract_choice(topic_completion)
+    chosen_topic = llm.extract_choice(topic_completion, None)
 
     intent_tools = get_tools_from_intents(all_topic_info, chosen_topic)
 
     intent_completion = llm.completion(user_message, intent_tools)
-    chosen_intent = llm.extract_choice(intent_completion)
+    chosen_intent_info = llm.extract_choice(intent_completion, intent_tools)
 
     predicted = {
         "topic": chosen_topic,
-        "intent": chosen_intent
+        "intent": chosen_intent_info["name"],
+        "entities": chosen_intent_info["params"]
     }
 
     return predicted

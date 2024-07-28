@@ -4,6 +4,16 @@ description: "Plan and manage travel arrangements. Search for hotels, flights, a
 intents:
   - name: "search_flights"
     description: "Searches for flights based on origin, destination, and dates."
+    entities:
+      - name: "origin"
+        type: "string"
+        description: "The origin of the flight."
+      - name: "destination"
+        type: "string"
+        description: "The destination of the flight."
+      - name: "date"
+        type: "string"
+        description: "The date of the flight."
   - name: "search_hotels"
     description: "Searches for hotels based on location, dates, and preferences."
   - name: "search_rental_cars"

@@ -4,6 +4,10 @@ description: "Get weather information for a specific location."
 intents:
   - name: "get_current_weather"
     description: "Gets the current weather conditions for a location."
+    entities:
+      - name: "city"
+        type: "string"
+        description: "The name of the city. Write 'none' if not provided."
   - name: "get_hourly_forecast"
     description: "Gets the hourly weather forecast for a location."
   - name: "get_daily_forecast"

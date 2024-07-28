@@ -18,7 +18,21 @@ SCHEMA = {
                 "properties": {
                     "name": {"type": "string"},
                     "description": {"type": "string"},
+                    "entities": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {"type": "string"},
+                                "type": {"type": "string"},
+                                "description": {"type": "string"},
+                            },
+                            "required": ["name", "type", "description"],
+                            "additionalProperties": False,
+                        }
+                    }
                 },
+                "required": ["name", "description"],
                 "additionalProperties": False,
             }
         }
