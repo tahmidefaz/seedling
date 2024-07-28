@@ -1,6 +1,7 @@
-import yaml
 import glob
+
 import jsonschema
+import yaml
 
 SCHEMA = {
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -49,7 +50,7 @@ def read(directory: str) -> dict:
     all_topic_info = []
 
     for yaml_file in yaml_files:
-        with open(yaml_file, 'r') as f:
+        with open(yaml_file, 'r', encoding='UTF-8') as f:
             data = yaml.safe_load(f)
             if is_valid(yaml_file, data):
                 all_topic_info.append(data)

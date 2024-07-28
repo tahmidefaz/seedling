@@ -26,7 +26,7 @@ class LanguageModel:
             if completion.choices[0].message.tool_calls:
                 return completion.choices[0]\
                     .message.tool_calls[0].function.name
-        except Exception as e:
+        except Exception as e:    # pylint: disable=broad-exception-caught
             print(completion)
             print(e)
-            return ""
+        return ""
