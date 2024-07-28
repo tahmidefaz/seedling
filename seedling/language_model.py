@@ -8,8 +8,8 @@ class LanguageModel:
         self.model = model
 
         self.client = OpenAI(
-            base_url = self.base_url,
-            api_key = self.api_key
+            base_url=self.base_url,
+            api_key=self.api_key
         )
 
     def completion(self, user_message: str, tools: dict) -> dict:
@@ -24,7 +24,8 @@ class LanguageModel:
     def extract_choice(self, completion: dict) -> str:
         try:
             if completion.choices[0].message.tool_calls:
-                return completion.choices[0].message.tool_calls[0].function.name
+                return completion.choices[0]\
+                    .message.tool_calls[0].function.name
         except Exception as e:
             print(completion)
             print(e)

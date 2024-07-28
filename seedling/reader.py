@@ -9,48 +9,49 @@ SCHEMA = {
         "name": {"type": "string"},
         "description": {"type": "string"},
         "intents": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "name": {"type": "string"},
-              "description": {"type": "string"},
-            },
-            "additionalProperties": False,
-          }
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {"type": "string"},
+                    "description": {"type": "string"},
+                },
+                "additionalProperties": False,
+            }
         }
     },
     "required": ["name", "description", "intents"],
     "additionalProperties": False,
 }
 
+
 def is_valid(filename: str, data: dict) -> bool:
-  try:
-    jsonschema.validate(instance=data, schema=SCHEMA)
-  except jsonschema.exceptions.ValidationError as e:
-    print(f"{filename} is invalid: {e}")
-    return False
-  return True
+    try:
+        jsonschema.validate(instance=data, schema=SCHEMA)
+    except jsonschema.exceptions.ValidationError as e:
+        print(f"{filename} is invalid: {e}")
+        return False
+    return True
 
 
 def read(directory: str) -> dict:
-  """Reads all YAML files in a directory and returns an array of dictionaries.
+    """Reads YAML files in a directory and returns an array of dictionaries.
 
-  Args:
-    directory: The path to the directory containing the YAML files.
+    Args:
+        directory: The path to the directory containing the YAML files.
 
-  Returns:
-    An array of dictionaries, where each dictionary represents the content of a YAML file.
-  """
+    Returns:
+        An array of dictionaries, where each dictionaryrepresents the
+        content of a YAML file.
+    """
 
-  yaml_files = glob.glob(f"{directory}/*.yaml")
-  all_topic_info = []
+    yaml_files = glob.glob(f"{directory}/*.yaml")
+    all_topic_info = []
 
-  for yaml_file in yaml_files:
-    with open(yaml_file, 'r') as f:
-      data = yaml.safe_load(f)
-      if is_valid(yaml_file, data):
-        all_topic_info.append(data)
+    for yaml_file in yaml_files:
+        with open(yaml_file, 'r') as f:
+            data = yaml.safe_load(f)
+            if is_valid(yaml_file, data):
+                all_topic_info.append(data)
 
-  return all_topic_info
-
+    return all_topic_info

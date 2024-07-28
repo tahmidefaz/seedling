@@ -1,7 +1,12 @@
-from .prep import get_tools_from_topics, get_tools_from_intents 
+from .prep import get_tools_from_topics, get_tools_from_intents
 from .language_model import LanguageModel
 
-def predict(llm: LanguageModel, all_topic_info: dict, user_message: str) -> dict:
+
+def predict(
+        llm: LanguageModel,
+        all_topic_info: dict,
+        user_message: str
+        ) -> dict:
     topic_tools = get_tools_from_topics(all_topic_info)
 
     topic_completion = llm.completion(user_message, topic_tools)
