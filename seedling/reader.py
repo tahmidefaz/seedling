@@ -1,3 +1,5 @@
+"""Reads and validates YAML files containing topic and intent information"""
+
 import glob
 
 import jsonschema
@@ -27,6 +29,15 @@ SCHEMA = {
 
 
 def is_valid(filename: str, data: dict) -> bool:
+    """Validates data against a JSON schema.
+
+    Args:
+        filename: The name of the file being validated.
+        data: The file data to validate.
+
+    Returns:
+        True if the data is valid, False otherwise.
+    """
     try:
         jsonschema.validate(instance=data, schema=SCHEMA)
     except jsonschema.exceptions.ValidationError as e:
@@ -35,14 +46,15 @@ def is_valid(filename: str, data: dict) -> bool:
     return True
 
 
-def read(directory: str) -> dict:
-    """Reads YAML files in a directory and returns an array of dictionaries.
+def read(directory: str) -> list:
+    """Reads YAML files in a directory, validates it using a JSONschema
+        and returns an array of dictionaries.
 
     Args:
         directory: The path to the directory containing the YAML files.
 
     Returns:
-        An array of dictionaries, where each dictionaryrepresents the
+        An array of dictionaries, where each dictionary represents the
         content of a YAML file.
     """
 
