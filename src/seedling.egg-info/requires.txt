@@ -1,7 +1,0 @@
-PyYAML==6.0.1
-jsonschema==4.21.1
-openai==1.23.6
-
-[dev]
-flake8
-pylint
