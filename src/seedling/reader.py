@@ -54,8 +54,7 @@ def read(directory: str) -> list:
         directory: The path to the directory containing the YAML files.
 
     Returns:
-        An array of dictionaries, where each dictionary represents the
-        content of a YAML file.
+        An array of dictionaries, where each dictionary represents the content of a YAML file.
     """
 
     yaml_files = glob.glob(f"{directory}/*.yaml")

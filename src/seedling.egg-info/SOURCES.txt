@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/seedling/__init__.py
+src/seedling/language_model.py
+src/seedling/predict.py
+src/seedling/prep.py
+src/seedling/reader.py
+src/seedling.egg-info/PKG-INFO
+src/seedling.egg-info/SOURCES.txt
+src/seedling.egg-info/dependency_links.txt
+src/seedling.egg-info/requires.txt
+src/seedling.egg-info/top_level.txt

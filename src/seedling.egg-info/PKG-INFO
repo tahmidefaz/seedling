@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: seedling
+Version: 0.1
+License-File: LICENSE
+Requires-Dist: PyYAML==6.0.1
+Requires-Dist: jsonschema==4.21.1
+Requires-Dist: openai==1.23.6
+Provides-Extra: dev
+Requires-Dist: flake8; extra == "dev"
+Requires-Dist: pylint; extra == "dev"

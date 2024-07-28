@@ -13,8 +13,7 @@ def predict(
 
     Args:
         llm: A LanguageModel instance for generating completions.
-        all_topic_info: A dictionary containing all available
-            topic and intent information.
+        all_topic_info: A dictionary containing all available topic and intent information.
         user_message: The user's input message as a string.
 
     Returns:

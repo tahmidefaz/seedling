@@ -1,0 +1,19 @@
+[project]
+name = "seedling"
+version = "0.1"
+description = "A simple library for intent recognition using LLMs."
+authors = ["Tahmid Efaz"]
+license = "Apache 2.0"
+
+dependencies = [
+    "PyYAML==6.0.1",
+    "jsonschema==4.21.1",
+    "openai==1.23.6",
+]
+
+
+[project.optional-dependencies]
+dev = [
+    "flake8",
+    "pylint",
+]

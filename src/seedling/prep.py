@@ -33,8 +33,7 @@ def get_tools_from_intents(all_topic_info: list, topic: str) -> list:
         topic: The name of the topic to parse intents from.
 
     Returns:
-        An array of LLM compatible tools corresponding to each intents
-        under the specified topic.
+        An array of LLM compatible tools corresponding to each intents under the specified topic.
     """
     intent_to_tools = []
 
