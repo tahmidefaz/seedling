@@ -10,6 +10,7 @@ In order to make things scalable, seedling forces you to group your intents to *
 This also keeps your prompt length short, reduces LLM hallucination, and makes LLM output more accurate.
 
 ![An image showing intents grouped together into topics](/topics_and_intents.png)
+*Example image showing intents grouped under six different topics*
 
 Seedling supports OpenAI/OpenAI-Complatible APIs out of the box.
 The OpenAI-Compatible API server must support `tools` use.
