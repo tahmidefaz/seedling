@@ -7,7 +7,7 @@
 
 Seedling 🌱 gives you a very simple and scalable way to detect intents from user messages using LLMs.
 In order to make things scalable, seedling forces you to group your intents to **topics**.
-This also keeps your prompt length short, reduces LLM hallucination, and make things more accurate.
+This also keeps your prompt length short, reduces LLM hallucination, and makes LLM output more accurate.
 
 ![An image showing intents grouped together into topics](/topics_and_intents.png)
 
@@ -34,11 +34,13 @@ intents:
     description: "Gets real-time traffic information for a route."
 ```
 
+Each YAML files must NOT contain more than 1 topic.
+
 
 ### One-shot entity extraction
 
 In addition to detecting intents, seedling also allows you to attempt to extract entities in one-shot.
-For enitity extraction, the smarter you LLM is, the better.
+For enitity extraction, the smarter your LLM is, the better.
 
 ```yaml
 name: "travel"
@@ -86,20 +88,24 @@ print(predicted)
 
 ## Check out the example
 
-Follow the following steps to run the example:
+The example is great for wrapping your head around everything.
+Follow these steps to run the example:
 
 1. Start a virtual environment
     ```
     python -m venv venv
     source venv/bin/activate
     ```
-2. Build the library
+2. Build the seedling 🌱 library
     ```
     pip install -e .
     ```
-3. Install the latest Ollama and pull down the `llama3.1` model.
-You can also update the example file under `example/main.py` with your OpenAI/OpenAI-compatible API server information.
-4. Run the example
+3. Install the latest version of [Ollama](https://ollama.com/) and pull down the `llama3.1` model.
+   Alternatively, you can also update the example file under `example/main.py` with your OpenAI/OpenAI-compatible API server information.
+   ```
+   ollama pull llama3.1
+   ```
+5. Run the example
     ```
     cd example
     python main.py
