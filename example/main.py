@@ -17,12 +17,13 @@ def main(user_message):
 
 if __name__ == "__main__":
     messages = [
+        "Are you human?",
         "do some magic on spotify!",
         "I want to make sure that I attend my friend's brithday party later this year",
         "I feel like eating out tonight",
         "It's so dark in this room... I can't see anything... help!",
         "anything interesting happened in the world of AI today?",
-        "look for a flight form New York to Los Angeles for July 28th",
+        "look for a flight from Denver to Honolulu for July 28th",
         "what's the weather in Seattle today?"
     ]
 

@@ -42,24 +42,6 @@ SCHEMA = {
 }
 
 
-def is_valid(filename: str, data: dict) -> bool:
-    """Validates data against a JSON schema.
-
-    Args:
-        filename: The name of the file being validated.
-        data: The file data to validate.
-
-    Returns:
-        True if the data is valid, False otherwise.
-    """
-    try:
-        jsonschema.validate(instance=data, schema=SCHEMA)
-    except jsonschema.exceptions.ValidationError as e:
-        print(f"{filename} is invalid: {e}")
-        return False
-    return True
-
-
 def read(directory: str) -> list:
     """Reads YAML files in a directory, validates it using a JSONschema
         and returns an array of dictionaries.
@@ -77,7 +59,10 @@ def read(directory: str) -> list:
     for yaml_file in yaml_files:
         with open(yaml_file, 'r', encoding='UTF-8') as f:
             data = yaml.safe_load(f)
-            if is_valid(yaml_file, data):
-                all_topic_info.append(data)
+
+            # Validate against JSONschema, and fail script when validation do not pass
+            jsonschema.validate(instance=data, schema=SCHEMA)
+
+            all_topic_info.append(data)
 
     return all_topic_info
